@@ -4,18 +4,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>js lang demo</title>
     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="../lib/mylang.js"></script>
+    <script type="text/javascript" src="../lib/mylang-fnobi.js"></script>
+    <script type="text/javascript" src="../lib/mylang-ikait.js"></script>
+    <script type="text/javascript" src="../lib/mylang-yosh1k104.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
   </head>
   <body>
     <div id="wrap">
       <h1>js lang demo</h1>
-      <h2>sourcecode</h2>
       <form id="demo-form">
-        <p><textarea name="sourcecode" cols="30" rows="10"></textarea></p>
+      <h2>version</h2>
+        <select name="version">
+          <option value="-">-</option>
+          <option value="fnobi">fnobi</option>
+          <option value="ikait">ikait</option>
+          <option value="yosh1k104">yosh1k104</option>
+        </select>
+        <h2>sourcecode</h2>
+        <p><textarea name="sourcecode" cols="90" rows="15"></textarea></p>
         <p><input type="submit" /></p>
+        <h2>result</h2>
+        <pre id="demo-result"></pre>
       </form>
-      <h2>result</h2>
-      <pre id="demo-result"></pre>
     </div>
   </body>
 </html>

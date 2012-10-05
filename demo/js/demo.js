@@ -6,7 +6,21 @@ $(function () {
 
 	$('#demo-form').submit(function (e) {
 		e.preventDefault();
-		var sourcecode = $('*[name="sourcecode"]', this).first().val();
-		$('#demo-result').html(sourcecode);
+
+		// 言語のバージョンは、フォームのversion欄に応じる
+		var language = mylang[$('*[name="version"]', this).val()] || mylang;
+
+		// ソースコードはフォームのsourcecode欄から取得
+		var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+
+		// lexer生成
+		var lexer = new language.Lexer(sourcecode);
+
+		// readでtoken一覧を取得して、ひとつひとつ出力
+		$('#demo-result').html('');
+		lexer.read().forEach(function (token) {
+			$('#demo-result').append('=> ' + token + '\n');
+		});
+
 	});
 });
