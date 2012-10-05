@@ -1,0 +1,30 @@
+【Javascript班 (ふじさわ班)】
+
+・藤澤 伸 (環境4年)
+　http://github.com/fnobi
+
+・猪飼 (総合2年)
+  http://github.com/ikait
+	　
+・小町 (環境2年)
+  http://github.com/yosh1k104
+
+
+【かくにんじこう】
+・Javascript
+・github
+・gitの使い方
+・言語の好み
+・レポジトリをつくろう!
+
+・jsで書くということは? どんなスタイルで動かすものにする?
+  ・インタプリタクラスをつくる
+    var l = new MyLanguage();
+    l.interpret("source cord.");
+
+  ・IOとかjavascriptにはないけど、どうしよう
+    DOMとか扱えるようにするんだろうか
+
+  ・node.js ?
+
+・発表する人
