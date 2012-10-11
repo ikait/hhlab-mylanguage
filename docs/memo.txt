@@ -1,13 +1,23 @@
 【Javascript班 (ふじさわ班)】
-
 ・藤澤 伸 (環境4年)
 　http://github.com/fnobi
 
-・猪飼 (総合2年)
+・猪飼 大志 (総合2年)
   http://github.com/ikait
 	　
-・小町 (環境2年)
+・小町 芳樹 (環境2年)
   http://github.com/yosh1k104
+
+
+【レポジトリ】
+・http://github.com/fnobi/hhlab-mylanguage/
+
+
+【〜10/11】
+・gitレポジトリ作成
+・gitのつかいかた
+----------先週授業終了-----------
+・とりあえずみんな別々のものを書くことに
 
 
 【かくにんじこう】
