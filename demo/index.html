@@ -14,7 +14,7 @@
     <div id="wrap">
       <h1>js lang demo</h1>
       <form id="demo-form">
-      <h2>version</h2>
+        <h2>version</h2>
         <select name="version">
           <option value="-">-</option>
           <option value="fnobi">fnobi</option>
@@ -22,7 +22,17 @@
           <option value="yosh1k104">yosh1k104</option>
         </select>
         <h2>sourcecode</h2>
-        <p><textarea name="sourcecode" cols="90" rows="15"></textarea></p>
+        <p>
+          <textarea name="sourcecode" cols="90" rows="15">
+sum = 0
+i = 1
+while i < 10 {
+  sum = sum + i
+  i = i + 1
+}
+sum
+          </textarea>
+        </p>
         <p><input type="submit" /></p>
         <h2>result</h2>
         <pre id="demo-result"></pre>
