@@ -1,26 +1,45 @@
 // 作った言語をデモとして、試しに動かすためのjs
+require(['jquery', '../../lib/main'], function ($) {
+	$(function () {
+		// フォームがsubmitされたら、言語のinterpreterにtextareaの中身を与える
+		// 結果は、 #demo-resultという要素の中身に書き出す
 
-$(function () {
-	// フォームがsubmitされたら、言語のinterpreterにtextareaの中身を与える
-	// 結果は、 #demo-resultという要素の中身に書き出す
+		$('#demo-form-lexer').submit(function (e) {
+			e.preventDefault();
 
-	$('#demo-form').submit(function (e) {
-		e.preventDefault();
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
 
-		// 言語のバージョンは、フォームのversion欄に応じる
-		var language = mylang[$('*[name="version"]', this).val()] || mylang;
+			// lexer生成
+			var lexer = new Lexer(sourcecode);
 
-		// ソースコードはフォームのsourcecode欄から取得
-		var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			// readでtokenを取得して、ひとつひとつ出力
+			var token;
 
-		// lexer生成
-		var lexer = new language.Lexer(sourcecode);
-
-		// readでtoken一覧を取得して、ひとつひとつ出力
-		$('#demo-result').html('');
-		lexer.read().forEach(function (token) {
-			$('#demo-result').append('=> ' + token + '\n');
+			$('*[name="result"]', this).first().html('');
+			while (token = lexer.read()) {
+				if (token.lineNumber < 0) {
+					break;
+				}
+				$('*[name="result"]', this).first().append(
+					'=> [' + token.lineNumber + '] ' + token + '\n'
+				);
+			}
 		});
 
+
+		$('#demo-form-ast').submit(function (e) {
+			e.preventDefault();
+
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+
+			var lexer = new Lexer(sourcecode);
+			var p = new ExprParser(lexer);
+			var t = p.expression();
+
+			$('*[name="result"]', this).first().html('');
+			$('*[name="result"]', this).first().html(t + '');
+		});
 	});
 });

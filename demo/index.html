@@ -4,21 +4,47 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>js lang demo</title>
     <script data-main="js/demo" src="js/require-jquery.js"></script>
+    <style type="text/css">
+body {
+  line-height: 150%;
+  font-family: sans-serif;
+}
+h1,h2,h3 {
+  padding: 0em;
+  margin: 0em;
+}
+
+#wrap {
+  width: 50em;
+  margin: 0em auto;
+}
+section {
+  border: solid 0.1em blue;
+  padding: 1em;
+  margin: 1em 0em;
+}
+    </style>
   </head>
   <body>
     <div id="wrap">
       <h1>js lang demo</h1>
-      <form id="demo-form">
-        <h2>version</h2>
-        <select name="version">
-          <option value="-">-</option>
-          <option value="fnobi">fnobi</option>
-          <option value="ikait">ikait</option>
-          <option value="yosh1k104">yosh1k104</option>
-        </select>
-        <h2>sourcecode</h2>
-        <p>
-          <textarea name="sourcecode" cols="90" rows="15">sum = 0
+
+      <section>
+        <h2>AST test</h2>
+        <form id="demo-form-ast">
+          <h3>sourcecode</h3>
+          <textarea name="sourcecode" cols="90" rows="5">3 + 5 * 2 -1</textarea>
+          <h3>result</h3>
+          <textarea name="result" cols="90" rows="5"></textarea>
+          <p><input type="submit" /></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Lexer test</h2>
+        <form id="demo-form-lexer">
+          <h3>sourcecode</h3>
+            <textarea name="sourcecode" cols="90" rows="15">sum = 0
 i = 1
 
 print "start program \"sum\""
@@ -28,11 +54,11 @@ while i < 10 {
   i = i + 1
 }
 sum</textarea>
-        </p>
-        <p><input type="submit" /></p>
-        <h2>result</h2>
-        <pre id="demo-result"></pre>
-      </form>
+          <h3>result</h3>
+          <textarea name="result" cols="90" rows="15"></textarea>
+          <p><input type="submit" /></p>
+        </form>
+      </section>
     </div>
   </body>
 </html>
