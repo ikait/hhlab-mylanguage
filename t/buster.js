@@ -4,14 +4,27 @@ config['stone test'] = {
 	rootPath: '../',
 	environment: 'browser', // 'browser' or 'node'
 	sources: [
-		'lib/Lexer.js',
-		'lib/ASTree.js',
-		'lib/ASTLeaf.js',
-		'lib/ASTList.js',
-		'lib/BinaryExpr.js',
-		'lib/NumberLiteral.js',
-		'lib/Name.js',
-		'lib/ExprParser.js'
+		// ast base
+		'./ASTree',
+		'./ASTLeaf',
+		'./ASTList',
+
+		// ast expressions
+		'./BinaryExpr',
+		'./NumberLiteral',
+		'./BlockStmnt',
+		'./IfStmnt',
+		'./Name',
+		'./NullStmnt',
+		'./NegativeExpr',
+		'./PrimaryExpr',
+		'./StringLiteral',
+		'./WhileStmnt',
+
+		// lexer & parser
+		'./Lexer',
+		'./ExprParser',
+		'./BasicParser'
 	],
 	tests: [
 		't/*-test.js'
