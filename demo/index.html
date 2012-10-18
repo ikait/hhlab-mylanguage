@@ -28,9 +28,30 @@ section {
   <body>
     <div id="wrap">
       <h1>js lang demo</h1>
+
       <section>
-        <h2>AST test</h2>
-        <form id="demo-form-ast">
+        <h2>run BasicPerser</h2>
+        <form id="demo-form-basicparser">
+          <h3>sourcecode</h3>
+            <textarea name="sourcecode" cols="90" rows="15">sum = 0
+i = 1
+
+print "start program \"sum\""
+
+while i < 10 {
+  sum = sum + i
+  i = i + 1
+}
+sum</textarea>
+          <h3>result</h3>
+          <textarea name="result" cols="90" rows="5"></textarea>
+          <p><input type="submit" /></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>run ExprPerser</h2>
+        <form id="demo-form-exprparser">
           <h3>sourcecode</h3>
           <textarea name="sourcecode" cols="90" rows="5">3 + 5 * 2 -1</textarea>
           <h3>result</h3>
@@ -41,7 +62,7 @@ section {
 
 
       <section>
-        <h2>Lexer test</h2>
+        <h2>run Lexer</h2>
         <form id="demo-form-lexer">
           <h3>sourcecode</h3>
             <textarea name="sourcecode" cols="90" rows="15">sum = 0
