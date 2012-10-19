@@ -59,7 +59,7 @@ require(['jquery', '../../lib/main'], function ($) {
 
 			$('*[name="result"]', this).first().html('');
 
-			while (lexer.hasMore) {
+			while (lexer.peek(0) != Token.EOF) {
 				t = p.program();
 				$('*[name="result"]', this).first().append(t + '\n');
 			}
