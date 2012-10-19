@@ -1,9 +1,6 @@
 // 作った言語をデモとして、試しに動かすためのjs
 require(['jquery', '../../lib/main'], function ($) {
 	$(function () {
-		// フォームがsubmitされたら、言語のinterpreterにtextareaの中身を与える
-		// 結果は、 #demo-resultという要素の中身に書き出す
-
 		// lexerを走らせる
 		$('#demo-form-lexer').submit(function (e) {
 			e.preventDefault();
@@ -41,7 +38,7 @@ require(['jquery', '../../lib/main'], function ($) {
 			var t = p.expression();
 
 			$('*[name="result"]', this).first().html('');
-			$('*[name="result"]', this).first().html(t + '');
+			$('*[name="result"]', this).first().html(t.toString());
 		});
 
 
@@ -61,7 +58,7 @@ require(['jquery', '../../lib/main'], function ($) {
 
 			while (lexer.peek(0) != Token.EOF) {
 				t = p.program();
-				$('*[name="result"]', this).first().append(t + '\n');
+				$('*[name="result"]', this).first().append(t.toString() + '\n');
 			}
 		});
 	});
