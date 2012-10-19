@@ -61,8 +61,7 @@ require(['jquery', '../../lib/main'], function ($) {
 
 			while (lexer.hasMore) {
 				t = p.program();
-				prev = $('*[name="result"]', this).first().html();
-				$('*[name="result"]', this).first().html(prev + (t + ''));
+				$('*[name="result"]', this).first().append(t + '\n');
 			}
 		});
 	});
