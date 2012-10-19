@@ -1,0 +1,30 @@
+body {
+  line-height: 150%;
+  font-family: sans-serif;
+}
+h1,h2,h3 {
+  padding: 0em;
+  margin: 0em;
+}
+
+#wrap {
+  width: 50em;
+  margin: 0em auto;
+}
+#wrap section {
+  border: solid 0.1em blue;
+  padding: 1em;
+  margin: 0em 0em 1em 0em;
+}
+#g-navi ul {
+  display: block;
+  overflow: hidden;
+  padding: 0em;
+  margin: 0em;
+}
+#g-navi ul li {
+  display: block;
+  float:left;
+  padding: 0.5em;
+  margin: 0em;
+}

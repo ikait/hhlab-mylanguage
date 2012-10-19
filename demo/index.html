@@ -4,39 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>js lang demo</title>
     <script data-main="js/demo" src="js/require-jquery.js"></script>
-    <style type="text/css">
-body {
-  line-height: 150%;
-  font-family: sans-serif;
-}
-h1,h2,h3 {
-  padding: 0em;
-  margin: 0em;
-}
-
-#wrap {
-  width: 50em;
-  margin: 0em auto;
-}
-section {
-  border: solid 0.1em blue;
-  padding: 1em;
-  margin: 0em 0em 1em 0em;
-}
-#g-navi ul {
-  display: block;
-  overflow: hidden;
-  padding: 0em;
-  margin: 0em;
-}
-#g-navi ul li {
-  display: block;
-  float:left;
-  padding: 0.5em;
-  margin: 0em;
-}
-
-    </style>
+    <script type="text/javascript" src="js/TabView.js"></script>
+    <script type="text/javascript">$(function () {new TabView('#g-navi');});</script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
   <body>
     <div id="wrap">
