@@ -6,6 +6,9 @@ h1,h2,h3 {
   padding: 0em;
   margin: 0em;
 }
+h1 {
+	margin: 0.5em 0;
+}
 
 #wrap {
   width: 50em;
@@ -25,6 +28,20 @@ h1,h2,h3 {
 #g-navi ul li {
   display: block;
   float:left;
-  padding: 0.5em;
+  border-style: solid;
+  border-color: blue;
+  border-width: 0.1em 0.1em 0 0;
+  padding: 0;
   margin: 0em;
+}
+#g-navi ul li:first-child {
+  border-width: 0.1em 0.1em 0;
+}
+#g-navi ul li a {
+	display: block;
+  padding: 0.5em;
+}
+#g-navi ul li a.active {
+	background: blue;
+	color: white;
 }
