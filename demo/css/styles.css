@@ -20,11 +20,28 @@ h1,h2,h3 {
   display: block;
   overflow: hidden;
   padding: 0em;
-  margin: 0em;
+  margin: 1em 0em 0em 0em;
 }
 #g-navi ul li {
   display: block;
   float:left;
-  padding: 0.5em;
+  padding: 0em;
   margin: 0em;
+}
+
+#g-navi a {
+  background-color: #eeeeff;
+  padding: 0.5em;
+  margin: 0em 0.5em 0em 0em;
+}
+#g-navi a:hover {
+  background-color: #ccccff;
+}
+#g-navi a.active {
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+}
+#g-navi a.active:hover {
+  background-color: blue;
 }
