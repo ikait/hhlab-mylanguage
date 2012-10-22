@@ -24,14 +24,20 @@
         <h2>run BasicParser</h2>
         <form id="demo-form-basicparser">
           <h3>sourcecode</h3>
-            <textarea name="sourcecode" cols="90" rows="15">sum = 0
+            <textarea name="sourcecode" cols="90" rows="15">even = 0
+odd = 0
 i = 1
 
 while i < 10 {
-  sum = sum + i
+  if i % 2 == 0 {
+      even = even + i
+  } else {
+      odd = odd + i
+  }
   i = i + 1
 }
-sum</textarea>
+
+even + odd</textarea>
           <h3>result</h3>
           <textarea name="result" cols="90" rows="5"></textarea>
           <p><input type="submit" /></p>
