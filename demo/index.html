@@ -14,11 +14,23 @@
 
       <nav id="g-navi">
         <ul>
+          <li><a href="#interpreter">run Interpreter</a></li>
           <li><a href="#basicparser">run BasicParser</a></li>
           <li><a href="#exprparser">run ExprParser</a></li>
           <li><a href="#lexer">run Lexer</a></li>
         </ul>
       </nav>
+
+      <section id="interpreter">
+        <h2>run Interpreter</h2>
+        <form id="demo-form-interpreter">
+          <h3>sourcecode</h3>
+            <textarea name="sourcecode" cols="90" rows="5">3 * 5 - 8 * (2 + 1) / 4</textarea>
+          <h3>result</h3>
+          <textarea name="result" cols="90" rows="5"></textarea>
+          <p><input type="submit" /></p>
+        </form>
+      </section>
 
       <section id="basicparser">
         <h2>run BasicParser</h2>
@@ -39,7 +51,7 @@ while i < 10 {
 
 even + odd</textarea>
           <h3>result</h3>
-          <textarea name="result" cols="90" rows="5"></textarea>
+          <textarea name="result" cols="90" rows="15"></textarea>
           <p><input type="submit" /></p>
         </form>
       </section>
@@ -48,7 +60,7 @@ even + odd</textarea>
         <h2>run ExprParser</h2>
         <form id="demo-form-exprparser">
           <h3>sourcecode</h3>
-          <textarea name="sourcecode" cols="90" rows="5">3 + 5 * 2 -1</textarea>
+          <textarea name="sourcecode" cols="90" rows="5">3 * 5 - 8 * (2 + 1) / 4</textarea>
           <h3>result</h3>
           <textarea name="result" cols="90" rows="5"></textarea>
           <p><input type="submit" /></p>

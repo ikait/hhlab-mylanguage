@@ -48,17 +48,40 @@ require(['jquery', '../../lib/main'], function ($) {
 
 			// ソースコードはフォームのsourcecode欄から取得
 			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			var $result = $('*[name="result"]', this).first();
 
 			var lexer = new Lexer(sourcecode);
 			var p = new BasicParser(lexer);
 			var t;
-			var prev;
 
-			$('*[name="result"]', this).first().html('');
+			$result.html('');
 
 			while (lexer.peek(0) != Token.EOF) {
 				t = p.program();
-				$('*[name="result"]', this).first().append(t.toString() + '\n');
+				$result.append(t.toString() + '\n');
+			}
+		});
+
+
+		// Interpreterを走らせる
+		$('#demo-form-interpreter').submit(function (e) {
+			e.preventDefault();
+
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			var $result = $('*[name="result"]', this).first();
+
+			var lexer = new Lexer(sourcecode);
+			var p = new BasicParser(lexer);
+			var t;
+
+			$result.html('');
+
+			while (lexer.peek(0) != Token.EOF) {
+				t = p.program();
+				$result.append([
+					'=>', t.eval(), '\n'
+				].join(' '));
 			}
 		});
 	});

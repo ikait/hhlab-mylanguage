@@ -21,6 +21,10 @@ config['stone test'] = {
 		'lib/StringLiteral.js',
 		'lib/WhileStmnt.js',
 
+		// interpreter
+		'lib/BasicEvaluator.js',
+		'lib/BasicEnv.js',
+
 		// lexer & parser
 		'lib/Lexer.js',
 		'lib/ExprParser.js',
