@@ -73,14 +73,15 @@ require(['jquery', '../../lib/main'], function ($) {
 
 			var lexer = new Lexer(sourcecode);
 			var p = new BasicParser(lexer);
-			var t;
+			var env = new BasicEnv();
 
+			var t;
 			$result.html('');
 
 			while (lexer.peek(0) != Token.EOF) {
 				t = p.program();
 				$result.append([
-					'=>', t.eval(), '\n'
+					'=>', t.eval(env), '\n'
 				].join(' '));
 			}
 		});
