@@ -5,28 +5,28 @@ config['stone test'] = {
 	environment: 'browser', // 'browser' or 'node'
 	sources: [
 		// ast base
-		'./ASTree',
-		'./ASTLeaf',
-		'./ASTList',
+		'lib/ASTree.js',
+		'lib/ASTLeaf.js',
+		'lib/ASTList.js',
 
 		// ast expressions
-		'./BinaryExpr',
-		'./NumberLiteral',
-		'./BlockStmnt',
-		'./IfStmnt',
-		'./Name',
-		'./NullStmnt',
-		'./NegativeExpr',
-		'./PrimaryExpr',
-		'./StringLiteral',
-		'./WhileStmnt',
+		'lib/BinaryExpr.js',
+		'lib/NumberLiteral.js',
+		'lib/BlockStmnt.js',
+		'lib/IfStmnt.js',
+		'lib/Name.js',
+		'lib/NullStmnt.js',
+		'lib/NegativeExpr.js',
+		'lib/PrimaryExpr.js',
+		'lib/StringLiteral.js',
+		'lib/WhileStmnt.js',
 
 		// lexer & parser
-		'./Lexer',
-		'./ExprParser',
-		'./BasicParser'
+		'lib/Lexer.js',
+		'lib/ExprParser.js',
+		'lib/BasicParser.js'
 	],
 	tests: [
-		't/*-test.js'
+		'test/*-test.js'
 	]
 };
