@@ -65,6 +65,19 @@ buster.testCase('Interpreter', {
 		assert(result);
 	},
 
+	'block': function () {
+		var sourcecode = [
+			'{',
+			'  "hoge"',
+			'  3',
+			'  "moge"',
+			'}'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert.equals(result, 'moge');
+	},
+
 	'if': function () {
 		var sourcecode = [
 			'a = 3',
