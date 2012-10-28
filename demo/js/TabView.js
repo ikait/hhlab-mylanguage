@@ -1,3 +1,65 @@
+/*
+10/25
+・ちょっとオブジェクト指向っぽくしてみた
+・eachを使うようにした
+・aタグを無駄に探さないようにした
+*/
+
+var TabView = function (selector) {
+
+	tab = [];
+
+	$('a[href]', selector).each(function (index, d) {
+		tab[index] = new Tab(d);
+
+		// まず全てのセクションを隠す
+		tab[index].hide();
+
+		// タブがクリックされたとき
+		tab[index].selector.click(function () {
+			// まず全てのセクションを隠す
+			$.each(tab, function (){
+				this.hide();
+			});
+			// クリックされたタブを表示
+			tab[index].show();
+			// スクロールさせない
+			return false;
+		});
+
+	});
+
+	tab[0].show();
+	// this.setTab();
+};
+
+// タブを選択する
+TabView.prototype.setTab = function () {
+	if (location.hash) {
+	} else {
+		// 指定がなければなければ
+		tab[0].show();
+	}
+}
+
+var Tab = function (d) {
+	this.selector = $(d);
+	this.content = $(this.selector.attr('href'));
+};
+
+Tab.prototype.show = function () {
+	this.selector.addClass('active');
+	this.content.show();
+};
+
+Tab.prototype.hide = function () {
+	this.selector.removeClass('active');
+	this.content.hide();
+};
+
+
+// オブジェクト指向なしで書いた
+/*
 var TabView = function (selector) {
 
 	// 与えられたselectorの配下にあるaタグの数を取得
@@ -34,3 +96,4 @@ var TabView = function (selector) {
 var Tab = function () {
 
 };
+*/
