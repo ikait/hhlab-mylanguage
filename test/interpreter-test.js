@@ -30,6 +30,34 @@ buster.testCase('Interpreter', {
 		assert.equals(result, 5);
 	},
 
+	'compare (equal)': function () {
+		var sourcecode = [
+			'x = 5',
+			'x == 5'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert(result);
+	},
+
+	'compare (greater)': function () {
+		var sourcecode = [
+			'3 > 5'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert(!result);
+	},
+
+	'compare (less)': function () {
+		var sourcecode = [
+			'3 < 5'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert(result);
+	},
+
 	'if': function () {
 		var sourcecode = [
 			'a = 3',
@@ -42,6 +70,19 @@ buster.testCase('Interpreter', {
 
 		var result = getInterpreterResult(sourcecode);
 		assert.equals(result, '"ok"');
+	},
+
+	'while': function () {
+		var sourcecode = [
+			'i = 0',
+			'while i < 10 {',
+			'  i = i + 3',
+			'}',
+			'i'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert.equals(result, 12);
 	}
 
 });
