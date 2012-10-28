@@ -30,6 +30,13 @@ buster.testCase('Interpreter', {
 		assert.equals(result, 5);
 	},
 
+	'string literal': function () {
+		var sourcecode = '"hogehoge"';
+
+		var result = getInterpreterResult(sourcecode);
+		assert.equals(result, 'hogehoge');
+	},
+
 	'compare (equal)': function () {
 		var sourcecode = [
 			'x = 5',
@@ -69,7 +76,7 @@ buster.testCase('Interpreter', {
 		].join('\n');
 
 		var result = getInterpreterResult(sourcecode);
-		assert.equals(result, '"ok"');
+		assert.equals(result, 'ok');
 	},
 
 	'while': function () {
