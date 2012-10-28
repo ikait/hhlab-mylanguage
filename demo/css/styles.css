@@ -7,7 +7,7 @@ h1,h2,h3 {
   margin: 0em;
 }
 h1 {
-	margin: 0.5em 0;
+  margin: 0.5em 0;
 }
 
 #wrap {
@@ -38,10 +38,10 @@ h1 {
   border-width: 0.1em 0.1em 0;
 }
 #g-navi ul li a {
-	display: block;
+  display: block;
   padding: 0.5em;
 }
 #g-navi ul li a.active {
-	background: blue;
-	color: white;
+  background: blue;
+  color: white;
 }
