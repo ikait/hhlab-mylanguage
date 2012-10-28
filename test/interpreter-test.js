@@ -13,7 +13,7 @@ var getInterpreterResult = function (sourcecode) {
 };
 
 buster.testCase('Interpreter', {
-	'calc': function () {
+	'calculate': function () {
 		var sourcecode = '3 * 5 - 8 * (2 + 1) / 4';
 
 		var result = getInterpreterResult(sourcecode);
@@ -28,6 +28,20 @@ buster.testCase('Interpreter', {
 
 		var result = getInterpreterResult(sourcecode);
 		assert.equals(result, 5);
+	},
+
+	'if': function () {
+		var sourcecode = [
+			'a = 3',
+			'if a == 3 {',
+			'  "ok"',
+			'} else {',
+			'  "ng"',
+			'}'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert.equals(result, '"ok"');
 	}
 
 });
