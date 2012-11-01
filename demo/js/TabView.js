@@ -16,15 +16,14 @@ var TabView = function (selector) {
 		tab[index].hide();
 
 		// タブがクリックされたとき
-		tab[index].selector.click(function () {
+		tab[index].selector.click(function (e) {
+			e.preventDefault();
 			// まず全てのセクションを隠す
 			$.each(tab, function (){
 				this.hide();
 			});
 			// クリックされたタブを表示
 			tab[index].show();
-			// スクロールさせない
-			return false;
 		});
 
 	});

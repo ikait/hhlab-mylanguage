@@ -62,7 +62,6 @@ require(['jquery', '../../lib/main'], function ($) {
 			}
 		});
 
-
 		// Interpreterを走らせる
 		$('#demo-form-interpreter').submit(function (e) {
 			e.preventDefault();
