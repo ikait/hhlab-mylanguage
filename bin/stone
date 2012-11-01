@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: __dirname + '/../lib/',
+    nodeRequire: require
+});
+
+requirejs(['main'], function (main) {
+
+	console.log(main);
+});
