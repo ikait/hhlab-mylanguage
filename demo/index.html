@@ -25,7 +25,20 @@
         <h2>run Interpreter</h2>
         <form id="demo-form-interpreter">
           <h3>sourcecode</h3>
-            <textarea name="sourcecode" cols="90" rows="5">3 * 5 - 8 * (2 + 1) / 4</textarea>
+            <textarea name="sourcecode" cols="90" rows="5">even = 0
+odd = 0
+i = 1
+
+while i < 10 {
+  if i % 2 == 0 {
+      even = even + i
+  } else {
+      odd = odd + i
+  }
+  i = i + 1
+}
+
+even + odd</textarea>
           <h3>result</h3>
           <textarea name="result" cols="90" rows="5"></textarea>
           <p><input type="submit" /></p>
