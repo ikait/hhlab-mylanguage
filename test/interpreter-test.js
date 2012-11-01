@@ -90,6 +90,15 @@ buster.testCase('Interpreter', {
 
 		var result = getInterpreterResult(sourcecode);
 		assert.equals(result, 12);
-	}
+	},
 
+	'negative expression': function () {
+		var sourcecode = [
+			'a = -5',
+			'a + -3'
+		].join('\n');
+
+		var result = getInterpreterResult(sourcecode);
+		assert.equals(result, -8);
+	}
 });
