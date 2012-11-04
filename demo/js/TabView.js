@@ -1,98 +1,94 @@
-/*
-10/25
-・ちょっとオブジェクト指向っぽくしてみた
-・eachを使うようにした
-・aタグを無駄に探さないようにした
-*/
-
+// タブをつかったレイアウトを管理する
 var TabView = function (selector) {
+	this.setTablinks(selector);
+};
 
-	tab = [];
+// selector以下のaタグをすべて認識して、タブを生成
+// また、1番最初のものを選択する
+TabView.prototype.setTablinks = function (selector) {
+	var self = this;
+	var $links = $('a', $(selector));
 
-	$('a[href]', selector).each(function (index, d) {
-		tab[index] = new Tab(d);
+	this.tabs = [];
 
-		// まず全てのセクションを隠す
-		tab[index].hide();
+	$links.each(function () {
+		self.addTab(this);
+	});
 
-		// タブがクリックされたとき
-		tab[index].selector.click(function (e) {
-			e.preventDefault();
-			// まず全てのセクションを隠す
-			$.each(tab, function (){
-				this.hide();
+	this.selectTab();
+};
+
+// 管理するタブを追加
+TabView.prototype.addTab = function (link) {
+	var tab = new Tab(link);
+	tab.tabview = this;
+	this.tabs.push(tab);
+};
+
+// 引数で指定したタブを選択 (1つだけ表示)
+// 指定されない場合(最初の読み込み時)はハッシュから選択
+TabView.prototype.selectTab = function (tab) {
+	var self = this;
+
+	this.tabs.forEach(function (t) {
+		t.hide();
+	});
+
+	if (!tab) {
+		if (location.hash) {
+			this.tabs.forEach(function (t) {
+				if ($(t.$link).attr('href') == location.hash) tab = t;
 			});
-			// クリックされたタブを表示
-			tab[index].show();
-		});
-
-	});
-
-	tab[0].show();
-	// this.setTab();
-};
-
-// タブを選択する
-TabView.prototype.setTab = function () {
-	if (location.hash) {
-	} else {
-		// 指定がなければなければ
-		tab[0].show();
-	}
-}
-
-var Tab = function (d) {
-	this.selector = $(d);
-	this.content = $(this.selector.attr('href'));
-};
-
-Tab.prototype.show = function () {
-	this.selector.addClass('active');
-	this.content.show();
-};
-
-Tab.prototype.hide = function () {
-	this.selector.removeClass('active');
-	this.content.hide();
-};
-
-
-// オブジェクト指向なしで書いた
-/*
-var TabView = function (selector) {
-
-	// 与えられたselectorの配下にあるaタグの数を取得
-	var f = $('a[href]', selector).size();
-
-	// tab配列にaタグのhrefの中身(#xxx)を入れていくついでに、全てのsectionを一旦非表示
-	var tab = [];
-	for (var i = 0; i < f; i++) {
-		$(tab[i] = $('a[href]:eq(' + i + ')', selector).attr('href')).hide();
-	}
-
-	// 一つ目のタブは最初から表示しておく
-	$(tab[0]).show();
-	$('a[href=' + tab[0] + ']', selector).addClass("active");
-
-	// タブがクリックされたとき、
-	$('a', selector).click(function () {
-
-		// 一旦全部のsectionを非表示にして、タブのaタグの.activeを取り除く
-		for (var i = 0; i < f; i++) {
-			$(tab[i]).hide();
-			$('a[href=' + tab[i] + ']', selector).removeClass("active");
+		} else {
+			tab = this.tabs[0];
 		}
+	}
 
-		// クリックされたタブに対応するsectionを表示させて、タブのaタグに.activeを付ける
-		$($(this).addClass("active").attr("href")).show();
+	// とりあえず表示させて、無理だったら最初のタブを表示
+	try {
+		tab.show();
+	} catch (e) {
+		tab = this.tabs[0];
+		tab.show();
+	}
+};
 
-		// スクロールさせない
-		return false;
+// タブの挙動を管理するクラス
+var Tab = function (link) {
+	var self = this;
+
+	this.$link = $(link);
+	this.$content = $(this.$link.attr('href'));
+
+	// このタブが指示するハッシュ
+	this.hash = $(self.$link).attr('href');
+
+	$(this.$link).click(function (e) {
+		e.preventDefault();
+		self.tabview.selectTab(self);
+		// 履歴に追加
+		history.pushState(null, null, self.hash);
 	});
 
+	$(window).on('popstate', function(e) {
+		self.tabview.tabs.forEach(function (t) {
+			// URLで指示されたハッシュとタブのハッシュが等しいとき
+			if (self.hash == location.hash) self.prev = t;
+		});
+		self.tabview.selectTab(self.prev);
+		delete self.prev;
+  });
+
 };
 
-var Tab = function () {
-
+// タブを非表示
+Tab.prototype.hide = function () {
+	this.$link.removeClass('active');
+	this.$content.hide();
 };
-*/
+
+// タブを表示
+Tab.prototype.show = function () {
+	this.$link.addClass('active');
+	this.$content.show();
+};
