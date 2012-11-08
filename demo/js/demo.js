@@ -84,5 +84,27 @@ require(['jquery', '../../lib/main'], function ($) {
 				].join(' '));
 			}
 		});
+
+		// FuncParserを走らせる
+		$('#demo-form-funcparser').submit(function (e) {
+			e.preventDefault();
+
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			var $result = $('*[name="result"]', this).first();
+
+			var lexer = new Lexer(sourcecode);
+			var p = new FuncParser(lexer);
+			var t;
+
+			$result.html('');
+
+			while (lexer.peek(0) != Token.EOF) {
+				t = p.program();
+				$result.append(t.toString() + '\n');
+			}
+		});
+
+
 	});
 });
