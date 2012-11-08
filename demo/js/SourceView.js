@@ -21,17 +21,17 @@ SourceView.prototype.addForm = function (f) {
 
 var Form = function (f) {
 	var self = this;
+	var $form = $(f);
 	var $textarea = $('textarea', $(f));
-	var $button = $('input[type="submit"]', $(f));
 
 	this.textareas = [];
 	$textarea.each(function () {
 		self.addTextarea(this);
 	});
 
-	this.buttons = [];
-	$button.each(function () {
-		self.addButton(this);
+	$form.bind('mousemove', function () {
+		self.textareas[1].setEnv(self.textareas[1].$textarea);
+		self.addLineNumber(self.textareas[1]);
 	});
 };
 
@@ -45,15 +45,10 @@ Form.prototype.addTextarea = function (ta) {
 	this.addLineNumber(textarea);
 };
 
-Form.prototype.addButton = function (btn) {
-	var button = new Button(btn);
-	button.sourceview = this;
-	this.buttons.push(button);
-};
-
 Form.prototype.addLineNumber = function (textarea) {
 	$(textarea.$textarea).css({
-		"width": "95%" // 幅を合計100%になるようにすると2行になる。。
+		"width": "95%", // 幅を合計100%になるようにすると2行になる。。
+		"resize": "vertical"
 	}).attr({
 		"rows": textarea.length + 1
 	});
@@ -70,6 +65,14 @@ Form.prototype.addLineNumber = function (textarea) {
 			k += i + 1 + "\n";
 		}	return k;
 	});
+	textarea.minheight = textarea.$textarea.height();
+};
+
+Form.prototype.refresh = function (textarea) {
+	var height = textarea.$textarea.height();
+	$(textarea.$textarea).prev().css({
+		"height": height
+	});
 };
 
 // テキストエリアの挙動を管理するクラス
@@ -83,6 +86,9 @@ var Textarea = function (ta) {
 		e.preventDefault();
 		self.setEnv(this);
 		self.sourceview.addLineNumber(self);
+	}).bind('mousemove', function (e) {
+		e.preventDefault();
+		self.sourceview.refresh(self);
 	});
 };
 
@@ -91,13 +97,3 @@ Textarea.prototype.setEnv = function (ta) {
 	this.value = $(ta).val();
 	this.length = this.value.split('\n').length;
 }
-
-var Button = function (btn) {
-	var self = this;
-	this.$button = $(btn);
-
-	$(this.$button).bind('click', function (e) {
-		self.sourceview.textareas[1].setEnv(self.sourceview.textareas[1].$textarea);
-		self.sourceview.addLineNumber(self.sourceview.textareas[1]);
-	});
-};
