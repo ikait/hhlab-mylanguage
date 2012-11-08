@@ -1,0 +1,46 @@
+言語をつくろう! Javascript班
+〜FuncParserを考える、編〜
+
+▼今週やったこと
+・JS課題をばちばちやってもらいました
+・枠組みに使っていたJSライブラリをちょっと解説しました
+・FuncParserを書きながら、またテストも書きながら考えてみました
+・関数Parse、関数実行のデモ画面
+
+▼仕様
+・expr -> equation (equationが関数を返す可能性がある)
+・primaryのpostfixの有無を "(" で判定 -> 空白開けずに続く()は問答無用でpostfixとみなす
+
+
+DefStmnt.eval
+ -> envに、new Funcしたものをいれて、覚えておく。
+↓
+PrimarayExpr.eval
+ -> 自分が関数かどうか確認 (hasPostfix)
+    postfixが存在するなら関数として、そうでないなら普通のとしてeval
+
+Arguments.eval
+ -> よくわからないけど、関数実行のeval本体はここらしい
+    (Envをnewしたり、Blockをevalしたり)
+
+
+
+
+
+
+
+
+
+▼疑問
+・関数実行表現をevalする = 環境を新規作成して、引数を与えて、関数の中のblockをevalする
+　その関数の定義はどこにしまうんだろう?
+
+　Javascriptだと、変数と関数の間に差はない(関数は「関数型」のデータが入っているだけの変数)
+　この言語の場合は? 変数と同じ名前空間に関数が入っている?
+　そこさえ決まってくれば。Parserとinterpreterだけで終わりそうなんだが
+
+・envにDefStmntをそのままぶち込む感じ?
+　だとしたら、他の整数とかもevalできる形に揃えたかったりするけれど。。
+
+・なんかパーツが足りないような…。
+　関数実行のexprとか。function interpreterはどこに書いてる?
