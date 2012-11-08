@@ -37,7 +37,9 @@ TabView.prototype.selectTab = function (tab) {
 	if (!tab) {
 		if (location.hash) {
 			this.tabs.forEach(function (t) {
-				if ($(t.$link).attr('href') == location.hash) tab = t;
+				if ($(t.$link).attr('href') == location.hash) {
+					tab = t;
+				}
 			});
 		} else {
 			tab = this.tabs[0];
@@ -73,12 +75,13 @@ var Tab = function (link) {
 	$(window).on('popstate', function(e) {
 		self.tabview.tabs.forEach(function (t) {
 			// URLで指示されたハッシュとタブのハッシュが等しいとき
-			if (self.hash == location.hash) self.prev = t;
+			if (self.hash == location.hash) {
+				self.prev = t;
+			}
 		});
 		self.tabview.selectTab(self.prev);
 		delete self.prev;
   });
-
 };
 
 // タブを非表示
