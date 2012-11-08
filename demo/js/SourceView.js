@@ -95,11 +95,9 @@ Textarea.prototype.setEnv = function (ta) {
 var Button = function (btn) {
 	var self = this;
 	this.$button = $(btn);
-	console.log(this);
 
 	$(this.$button).bind('click', function (e) {
 		self.sourceview.textareas[1].setEnv(self.sourceview.textareas[1].$textarea);
 		self.sourceview.addLineNumber(self.sourceview.textareas[1]);
-		console.log(self.sourceview.textareas[1]);
 	});
 };
