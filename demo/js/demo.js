@@ -105,6 +105,29 @@ require(['jquery', '../../lib/main'], function ($) {
 			}
 		});
 
+		// Func-Interpreterを走らせる
+		$('#demo-form-func-interpreter').submit(function (e) {
+			e.preventDefault();
+
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			var $result = $('*[name="result"]', this).first();
+
+			var lexer = new Lexer(sourcecode);
+			var p = new FuncParser(lexer);
+			var env = new BasicEnv();
+
+			var t;
+			$result.html('');
+
+			while (lexer.peek(0) != Token.EOF) {
+				t = p.program();
+				$result.append([
+					'=>', t.eval(env), '\n'
+				].join(' '));
+			}
+		});
+
 
 	});
 });
