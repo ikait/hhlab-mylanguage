@@ -1,6 +1,6 @@
 var getFancparserResult = function (sourcecode) {
 	var lexer = new Lexer(sourcecode);
-	var p = new FancParser(lexer);
+	var p = new FuncParser(lexer);
 
 	var t; var result;
 	while (lexer.peek(0) != Token.EOF) {
@@ -35,7 +35,7 @@ buster.testCase('FancParser', {
 
 		var result = getFancparserResult(sourcecode);
 		assert.equals(result, '');
-	}
+	},
 	'def': function () {
 		var sourcecode = [
 
@@ -59,7 +59,7 @@ buster.testCase('FancParser', {
 
 		var result = getFancparserResult(sourcecode);
 		assert.equals(result, '');
-	}
+	},
 	'primary': function () {
 		var sourcecode = [
 

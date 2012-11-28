@@ -26,8 +26,11 @@ config['stone test'] = {
 		'lib/ParameterList.js',
 		'lib/Arguments.js',
 
+		'lib/Func.js',
+
 		// interpreter
 		'lib/BasicEvaluator.js',
+		'lib/FuncEvaluator.js',
 		'lib/BasicEnv.js',
 
 		// lexer & parser
