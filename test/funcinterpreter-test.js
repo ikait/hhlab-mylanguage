@@ -50,5 +50,21 @@ buster.testCase('FancParser', {
 		].join('\n');
  		var result = getFuncInterpreterResult(sourcecode);
  		assert.equals(result, 55);
+	},
+
+	'fib': function () {
+		var sourcecode = [
+			'def fib (x){',
+			'  if (x<2) {',
+			'    1',
+			'  } else {',
+			'    fib(x-1) + fib(x-2)',
+			'  }',
+			'}',
+			'i = 1',
+			'fib(10)'
+		].join('\n');
+ 		var result = getFuncInterpreterResult(sourcecode);
+ 		assert.equals(result, 89);
 	}
 });
