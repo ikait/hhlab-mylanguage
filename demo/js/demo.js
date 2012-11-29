@@ -129,6 +129,34 @@ require(['jquery', '../../lib/main'], function ($) {
 			}
 		});
 
+		// printのデモ
+		$('#demo-form-print').submit(function (e) {
+			e.preventDefault();
+
+			// ソースコードはフォームのsourcecode欄から取得
+			var sourcecode = $('*[name="sourcecode"]', this).first().val() || '';
+			var $result = $('*[name="result"]', this).first();
+
+			var lexer = new Lexer(sourcecode);
+			var p = new FuncParser(lexer);
+			var env = new BasicEnv();
+
+			var t; var value;
+			$result.html('');
+
+			while (lexer.peek(0) != Token.EOF) {
+				t = p.program();
+
+				// onprint:
+				// eval時にprintが実行されたら、この関数が呼ばれる
+				t.onprint(function (content) {
+					$result.append(content);
+				});
+
+				value = t.eval(env);
+			}
+		});
+
 
 	});
 });
