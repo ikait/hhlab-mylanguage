@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Your deck.js Presentation</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/neon.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+	<h1>js班</h1>
+</section>
+
+<section class="slide">
+	<h2>めんばー</h2>
+	<ul>
+          <li>藤澤</li>
+          <li>小町</li>
+          <li>猪飼</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>やったこと</h2>
+	<ul class="slide">
+	  <li>再帰呼び出しできたよ!!</li>
+	  <li>どんな言語を作るか考えてます</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>デモ</h1>
+</section>
+
+<section class="slide">
+	<h2>かんがえた。</h2>
+	<ul>
+	  <li>URL型がある</li>
+	  <li>球磨川くん言語 (『』をなにかの意味で使うとか)</li>
+	  <li>フォントの大きさなどが意味を持つ言語</li>
+	  <li>省略形を登録できる</li>
+	  <li>要素に四則演算がかけられる</li>
+	  <li>飾り付けるとパフォーマンスが向上…</li>
+	  <li>文芸プログラミング向け。ドキュメントと用語が対応。</li>
+	  <li>あなたの心に直接語りかけてくる言語</li>
+	  <li>時間が経った部分が腐ってくる言語</li>
+	  <li>URLだけで記述する言語</li>
+	  <li>テンションの概念がある (...がついてるとsleep挟みながら実行するとか、wwwがついてると逆とか)</li>
+	  <li>書きながら実行する前提の言語</li>
+	  <li>実行しながら音を出すプログラム (関数呼び出しとかループとか四則演算に音割り当て)</li>
+	  <li>もも|くろ|ちゃん</li>
+	  <li>tokenが全部日本語 (できるだけ話し言葉っぽく)</li>
+	  <li>関数は全てキャラクターの挙動として記述。キャラクターによって使える関数・使えない関数がある</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>次回</h2>
+	<ul>
+	  <li>
+	    考えをまとめる → ゆるゆると実装へ
+	  </li>
+	</ul>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
