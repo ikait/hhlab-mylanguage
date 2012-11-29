@@ -29,11 +29,15 @@
         <h2>run Func-Interpreter</h2>
         <form id="demo-form-func-interpreter">
           <h3>sourcecode</h3>
-            <textarea name="sourcecode" cols="90" rows="15">def add (a, b){
-  a + b
+            <textarea name="sourcecode" cols="90" rows="15">def sumTo (x){
+  if (x==1) {
+    1
+  } else {
+    x + sumTo(x-1)
+  }
 }
-
-add(2,3)</textarea>
+sumTo(10)
+</textarea>
           <h3>result</h3>
           <textarea name="result" cols="90" rows="7"></textarea>
           <p><input type="submit" /></p>
