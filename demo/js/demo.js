@@ -147,9 +147,9 @@ require(['jquery', '../../lib/main'], function ($) {
 			while (lexer.peek(0) != Token.EOF) {
 				t = p.program();
 
-				// onprint:
+				// onstdout:
 				// eval時にprintが実行されたら、この関数が呼ばれる
-				t.onprint(function (content) {
+				t.onstdout(function (content) {
 					$result.append(content);
 				});
 
