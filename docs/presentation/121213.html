@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="themes/style/web-2.0.css">
+	<link rel="stylesheet" href="themes/style/neon.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
@@ -32,15 +32,54 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide">
-	<h1>Slide</h1>
+  <h1>js班</h1>
 </section>
 
 <section class="slide">
-	<h1>Content</h1>
+  <h2>めんばー</h2>
+  <ul>
+    <li>藤澤</li>
+    <li>小町</li>
+    <li>猪飼</li>
+  </ul>
 </section>
 
 <section class="slide">
-	<h1>Here</h1>
+  <h2>今週の作業</h2>
+  <dl>
+    <dt>藤澤</dt>
+    <dd>のんびりしてた → さっきprintを書いた</dd>
+    <dt>小町</dt>
+    <dd>StoneからJavascript関数の実行</dd>
+    <dt>猪飼</dt>
+    <dd>テストケースをかきかき</dd>
+  </dl>
+</section>
+
+<section class="slide">
+  <h2>print</h2>
+  <ul>
+    <li>できた!!</li>
+    <li class="slide">onstdout → stdout ← printから呼ぶ</li>
+    <li class="slide">じみ。</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>次回</h2>
+  <ul>
+    <li>stdin, stderrも欲しいなぁ</li>
+    <li>もうちょっと、さらっと実行できるようにしたい。(fnobi)</li>
+    <li>おもしろいprintを書いてきてね!! (小町・猪飼)</li>
+  </ul>
+  <pre>
+<code>var stone = new Stone();
+stone.onstdout = function (str) {
+  document.write(str);
+};
+stone.exec('a = 10; 3 + a');
+</code>
+  </pre>
 </section>
 
 <!-- End slides. -->
