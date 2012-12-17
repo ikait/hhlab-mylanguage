@@ -2,21 +2,23 @@
 require(['jquery', '../../lib/main'], function ($, Stone) {
 	$(function () {
 		var stone = new Stone();
-		var $result = $('#stone-result').first();
 
+		// 出力先決定
+		var $result = $('#stone-result').first();
 		stone.onstdout(function (content) {
 			$result.append(content);
 		});
+		$result.html('');
 
+		// 実行時の処理
 		$('#stone-form').submit(function (e) {
 			e.preventDefault();
+			var sourcecode = $('#stone-sourcecode').first().val();
+			if (!sourcecode) {
+				return false;
+			}
 
-			// ソースコードはフォームのsourcecode欄から取得
-			var sourcecode = $('#stone-sourcecode').first().val() || '';
-			$result.html('');
 			stone.exec(sourcecode);
 		});
-
-
 	});
 });
