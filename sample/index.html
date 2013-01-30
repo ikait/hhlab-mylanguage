@@ -8,26 +8,63 @@
   </head>
   <body>
     <div id="wrap">
-      <h1>stone</h1>
+      <div id="left">
+        <h1>stone</h1>
+        <span id="span1">123</span>
+        <br>
+        <section>
+          <form id="stone-form">
+            <h3>sourcecode</h3>
 
-      <section>
-        <form id="stone-form">
-          <h3>sourcecode</h3>
-          <textarea id="stone-sourcecode" cols="90" rows="15">def fib (num) {
-  if num < 3 {
-    1
-  } else {
-    add(fib(num - 1), fib(num - 2))
-  }
-}
+            <textarea id="stone-sourcecode">width = "300px"
+height = "100px"
 
-x = fib(7)
-print(x)</textarea>
-          <h3>result</h3>
-          <textarea id="stone-result" cols="90" rows="7"></textarea>
-          <p><input type="submit" /></p>
-        </form>
-      </section>
+setCSS("#span1",
+"background: rgba(255, 255, 255, 0.8)",
+"color: #ddd",
+"width:" + width,
+"height:" + height,
+"line-height:" + height,
+"font-size: 50px",
+boxShadow("0px 0px 5px #333"),
+borderRadius("5px"),
+textStroke("1px", "black"),
+boxSizing("border-box")
+)
+
+fixToCenter("#span1")
+
+print(getCSS("#span1"))
+print(getCSS("#span1", "background"))
+
+</textarea>
+            <h3>result</h3>
+            <textarea id="stone-result"></textarea>
+            <p><input type="submit" /></p>
+          </form>
+        </section>
+      </div>
+      <div id="right">
+        <section>
+          <ul>
+            <li>getOffset(selector, top/left)<br>上か右のオフセットを返す</li>
+            <li>getWidth(selector)<br>横幅を返す</li>
+            <li>getHeight(selector)<br>縦幅を返す</li>
+            <li>getCSS(selector[, property])<br>CSSをprintする(プロパティを指定したときはその値をかえす)</li>
+            <li>fixToCenter(selector)<br>真ん中に固定する</li>
+            <li>fixToTop(selector)<br>一番上に固定する</li>
+            <li>fixToBottom(selector)<br>一番下に固定する</li>
+            <li>expandWidth(selector)<br>横幅をいっぱい広げる</li>
+            <li>expandHeight(selector)<br>縦幅をいっぱい広げる</li>
+          </ul>
+          <hr>
+          <ul>
+            <li>boxShadow(value), borderRadius(value)<br>-webkit, -mozなどつけてかえす</li>
+            <li>textStroke(weight, value)<br>text-shadowを使って縁取りする</li>
+            <li></li>
+          </ul>
+        </section>
+      </div>
     </div>
   </body>
 </html>
